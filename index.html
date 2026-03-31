@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PureBeauty | Premium Skincare Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d4a373',
+                        secondary: '#faedcd',
+                        dark: '#333333',
+                        light: '#faf9f8'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light text-dark relative min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold tracking-widest text-primary uppercase" style="font-family: 'Playfair Display', serif;">PureBeauty</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-dark hover:text-primary transition font-medium">Home</a>
+                <a href="shop.html" class="text-dark hover:text-primary transition font-medium">Shop</a>
+                <a href="about.html" class="text-dark hover:text-primary transition font-medium">About</a>
+                <a href="contact.html" class="text-dark hover:text-primary transition font-medium">Contact</a>
+            </div>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-6">
+                <!-- Search Icon -->
+                <button class="text-dark hover:text-primary transition"><i class="fas fa-search"></i></button>
+                <!-- Cart Icon -->
+                <a href="cart.html" class="text-dark hover:text-primary transition relative group">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold" style="display: none;">0</span>
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-dark hover:text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white border-t mt-4 pb-4 shadow-lg glass-effect">
+            <div class="flex flex-col space-y-4 px-6 pt-4">
+                <a href="index.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Home</a>
+                <a href="shop.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Shop</a>
+                <a href="about.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">About</a>
+                <a href="contact.html" class="text-dark hover:text-primary transition font-medium pb-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="images/hero.png" alt="PureBeauty Cream" class="w-full h-full object-cover object-center scale-105 transform hover:scale-100 transition duration-1000 ease-in-out">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-20">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-md animate-fade-in-up">Discover Pure Aesthetics</h1>
+            <p class="text-lg md:text-2xl text-white mb-10 drop-shadow flex-col font-light animate-fade-in-up delay-100">Unlock your skin's natural radiance with our luxury rose gold formulation.</p>
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up delay-200">
+                <a href="shop.html" class="px-8 py-4 bg-primary text-white font-medium rounded hover:bg-[#c38c5b] transition shadow-lg w-full sm:w-auto text-center">Shop Now</a>
+                <a href="#discover" class="px-8 py-4 bg-transparent border border-white text-white font-medium rounded hover:bg-white hover:text-dark transition shadow-lg w-full sm:w-auto text-center">Discover More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="discover" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl text-dark mb-4 drop-shadow-sm">Why PureBeauty?</h2>
+                <div class="w-24 h-1 bg-primary mx-auto"></div>
+                <p class="mt-6 text-gray-500 max-w-2xl mx-auto">Crafted with the finest, ethically sourced ingredients to nourish, hydrate, and rejuvenate your skin.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-8 rounded-xl bg-light hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">100% Natural</h3>
+                    <p class="text-gray-600">Free from harsh chemicals. Formulated with pure botanical extracts tailored for all skin types.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-light hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tint text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Deep Hydration</h3>
+                    <p class="text-gray-600">Locks in moisture for up to 48 hours, leaving your face glowing and deeply nourished.</p>
+                </div>
+                <div class="p-8 rounded-xl bg-light hover:shadow-xl transition duration-300">
+                    <div class="w-16 h-16 bg-secondary text-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Anti-Aging</h3>
+                    <p class="text-gray-600">Clinical trials show significant reduction in fine lines and restored skin elasticity within weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    <section class="py-24 bg-secondary bg-opacity-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 relative rounded-2xl overflow-hidden shadow-2xl">
+                <!-- Using the same generated image for now as placeholder, later shop will have details -->
+                <img src="images/hero.png" alt="PureBeauty Signature Cream" class="w-full h-auto object-cover transform hover:scale-105 transition duration-500">
+            </div>
+            <div class="order-1 md:order-2">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">Best Seller</span>
+                <h2 class="text-4xl font-bold mb-6">The Signature Radiance Cream</h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">Our flagship product combines the power of Vitamin C, Hyaluronic Acid, and pure Rosehip extract. Experience a luxurious texture that melts into your skin, delivering instant luminosity and long-term youthfulness.</p>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
+                    <div class="flex justify-between items-center text-xl font-bold">
+                        <span>LKR 5,490.00</span>
+                    </div>
+                </div>
+                
+                <button onclick="addToCart('prod_1', 'Signature Radiance Cream', 5490, 'images/hero.png')" class="w-full sm:w-auto px-10 py-4 bg-dark text-white font-medium rounded hover:bg-black transition shadow-lg flex items-center justify-center space-x-2">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Quick Add to Cart</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div>
+                <h3 class="text-2xl font-bold tracking-widest text-primary uppercase mb-6" style="font-family: 'Playfair Display', serif;">PureBeauty</h3>
+                <p class="text-gray-400 mb-6">Redefining luxury skincare with nature's finest ingredients. Your journey to perfect skin starts here.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white bg-opacity-10 flex items-center justify-center hover:bg-primary transition"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="text-gray-400 hover:text-primary transition">Home</a></li>
+                    <li><a href="shop.html" class="text-gray-400 hover:text-primary transition">Shop Collections</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-primary transition">Our Story</a></li>
+                    <li><a href="contact.html" class="text-gray-400 hover:text-primary transition">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Customer Care</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">FAQ</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Shipping Returns</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Track Order</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                <p class="text-gray-400 mb-4">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                <form class="flex overflow-hidden rounded">
+                    <input type="email" placeholder="Enter your email address" class="w-full px-4 py-3 text-dark focus:outline-none focus:ring-2 focus:ring-primary">
+                    <button type="submit" onclick="event.preventDefault(); showToast('Subscribed successfully!');" class="bg-primary px-6 py-3 font-medium hover:bg-[#c38c5b] transition">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+            &copy; 2026 PureBeauty Cosmetics. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

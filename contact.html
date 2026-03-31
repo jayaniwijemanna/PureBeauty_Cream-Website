@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | PureBeauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d4a373',
+                        secondary: '#faedcd',
+                        dark: '#333333',
+                        light: '#faf9f8'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light text-dark relative min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 bg-white shadow-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold tracking-widest text-primary uppercase" style="font-family: 'Playfair Display', serif;">PureBeauty</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-500 hover:text-primary transition font-medium">Home</a>
+                <a href="shop.html" class="text-gray-500 hover:text-primary transition font-medium">Shop</a>
+                <a href="about.html" class="text-gray-500 hover:text-primary transition font-medium">About</a>
+                <a href="contact.html" class="text-primary transition font-bold border-b-2 border-primary pb-1">Contact</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <!-- Cart Icon -->
+                <a href="cart.html" class="text-dark hover:text-primary transition relative group font-bold">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold" style="display: none;">0</span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-dark hover:text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white border-t mt-4 pb-4 shadow-lg z-50">
+            <div class="flex flex-col space-y-4 px-6 pt-4">
+                <a href="index.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Home</a>
+                <a href="shop.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Shop</a>
+                <a href="about.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">About</a>
+                <a href="contact.html" class="text-primary font-bold pb-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="py-16 bg-secondary bg-opacity-30 text-center">
+        <h1 class="text-4xl font-bold mb-4 text-dark" style="font-family: 'Playfair Display', serif;">Get in Touch</h1>
+        <p class="text-gray-600 max-w-2xl mx-auto px-4">We would love to hear from you. Whether you have a question about our creams, your order, or just want to share your glowing results!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div class="flex flex-col md:flex-row gap-16">
+            
+            <!-- Contact Info -->
+            <div class="md:w-1/3">
+                <h2 class="text-2xl font-bold mb-8 text-dark pb-2 border-b">Contact Information</h2>
+                
+                <div class="flex items-start mb-8 text-gray-600">
+                    <i class="fas fa-map-marker-alt text-primary text-xl mt-1 mr-4"></i>
+                    <div>
+                        <h4 class="font-bold text-dark mb-1">Our Boutique</h4>
+                        <p>123 Glow Avenue, Suite 400<br>Colombo 03, Sri Lanka</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start mb-8 text-gray-600">
+                    <i class="fas fa-phone-alt text-primary text-xl mt-1 mr-4"></i>
+                    <div>
+                        <h4 class="font-bold text-dark mb-1">Phone</h4>
+                        <p>+94 77 123 4567</p>
+                        <p class="text-sm mt-1 text-gray-400">Mon-Fri 9am to 6pm (LKT)</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start mb-8 text-gray-600">
+                    <i class="fas fa-envelope text-primary text-xl mt-1 mr-4"></i>
+                    <div>
+                        <h4 class="font-bold text-dark mb-1">Email</h4>
+                        <p>hello@purebeauty.lk</p>
+                    </div>
+                </div>
+
+                <div class="mt-10">
+                    <h4 class="font-bold text-dark mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-light border flex items-center justify-center hover:bg-primary hover:text-white transition text-dark"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-light border flex items-center justify-center hover:bg-primary hover:text-white transition text-dark"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                <h2 class="text-2xl font-bold mb-6 text-dark">Send a Message</h2>
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">First Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Last Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Subject</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Message</label>
+                        <textarea required rows="5" class="w-full px-4 py-3 rounded-md border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none transition"></textarea>
+                    </div>
+                    <button type="submit" class="bg-dark hover:bg-black text-white font-bold py-4 px-8 rounded transition duration-300 flex items-center space-x-2">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-10 pb-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold tracking-widest text-primary uppercase mb-4" style="font-family: 'Playfair Display', serif;">PureBeauty</h3>
+            <p class="text-gray-400 text-sm">&copy; 2026 PureBeauty Cosmetics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const inputs = this.querySelectorAll('input, textarea');
+            const firstName = inputs[0].value || 'Customer';
+            const lastName = inputs[1].value || '';
+            const email = inputs[2].value || '';
+            const subject = inputs[3].value || '';
+            const messageText = inputs[4].value || '';
+            
+            const msgs = JSON.parse(localStorage.getItem('purebeauty_messages')) || [];
+            msgs.push({
+                id: Date.now(),
+                name: `${firstName} ${lastName}`,
+                email: email,
+                subject: subject,
+                message: messageText,
+                date: new Date().toLocaleDateString()
+            });
+            localStorage.setItem('purebeauty_messages', JSON.stringify(msgs));
+
+            alert(`Hello ${firstName}, your message has been successfully sent to the admin! We will contact you soon.`);
+            this.reset();
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

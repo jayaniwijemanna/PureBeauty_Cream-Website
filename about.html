@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | PureBeauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d4a373',
+                        secondary: '#faedcd',
+                        dark: '#333333',
+                        light: '#faf9f8'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light text-dark relative min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 bg-white shadow-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold tracking-widest text-primary uppercase" style="font-family: 'Playfair Display', serif;">PureBeauty</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-500 hover:text-primary transition font-medium">Home</a>
+                <a href="shop.html" class="text-gray-500 hover:text-primary transition font-medium">Shop</a>
+                <a href="about.html" class="text-primary transition font-bold border-b-2 border-primary pb-1">About</a>
+                <a href="contact.html" class="text-gray-500 hover:text-primary transition font-medium">Contact</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <!-- Cart Icon -->
+                <a href="cart.html" class="text-dark hover:text-primary transition relative group font-bold">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold" style="display: none;">0</span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-dark hover:text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white border-t mt-4 pb-4 shadow-lg z-50">
+            <div class="flex flex-col space-y-4 px-6 pt-4">
+                <a href="index.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Home</a>
+                <a href="shop.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Shop</a>
+                <a href="about.html" class="text-primary font-bold border-b pb-2">About</a>
+                <a href="contact.html" class="text-dark hover:text-primary transition font-medium pb-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="py-24 bg-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-6 text-dark" style="font-family: 'Playfair Display', serif;">The PureBeauty Story</h1>
+            <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            <p class="text-xl text-gray-500 leading-relaxed">Born out of a desire for uncompromised quality, PureBeauty merges the finest botanical ingredients with cutting-edge skincare science. We believe that luxury is purity.</p>
+        </div>
+    </header>
+
+    <!-- Story Image & Text Section -->
+    <section class="py-16 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2">
+                <img src="images/model.png" alt="PureBeauty Model" class="rounded-2xl shadow-xl w-full h-auto object-cover filter brightness-105">
+            </div>
+            <div class="w-full md:w-1/2">
+                <h2 class="text-3xl font-bold mb-6 text-dark" style="font-family: 'Playfair Display', serif;">Our Philosophy</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    At PureBeauty, we understand that your skin is your canvas. Our formulations are crafted meticulously, ensuring that every jar contains the perfect balance of hydration, nourishment, and active restorative properties.
+                </p>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    We source our signature Rose Extract globally, ensuring fair trade and sustainability. Combined with Pearl Protein and Hyaluronic Acid, our creams deliver unparalleled results without the use of harsh synthetics.
+                </p>
+                <div class="flex items-center space-x-4 mt-8">
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-primary mb-1">10+</span>
+                        <span class="text-sm text-gray-500">Years of R&D</span>
+                    </div>
+                    <div class="h-10 border-l border-gray-300 mx-4"></div>
+                    <div class="text-center">
+                        <span class="block text-3xl font-bold text-primary mb-1">100%</span>
+                        <span class="text-sm text-gray-500">Vegan & Cruelty-Free</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-10 pb-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold tracking-widest text-primary uppercase mb-4" style="font-family: 'Playfair Display', serif;">PureBeauty</h3>
+            <p class="text-gray-400 text-sm">&copy; 2026 PureBeauty Cosmetics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | PureBeauty</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#d4a373',
+                        secondary: '#faedcd',
+                        dark: '#333333',
+                        light: '#faf9f8'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-light text-dark relative min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="w-full z-50 bg-white shadow-sm py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-2xl font-bold tracking-widest text-primary uppercase" style="font-family: 'Playfair Display', serif;">PureBeauty</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-500 hover:text-primary transition font-medium">Home</a>
+                <a href="shop.html" class="text-gray-500 hover:text-primary transition font-medium">Shop</a>
+                <a href="about.html" class="text-gray-500 hover:text-primary transition font-medium">About</a>
+                <a href="contact.html" class="text-gray-500 hover:text-primary transition font-medium">Contact</a>
+            </div>
+            <div class="flex items-center space-x-6">
+                <!-- Cart Icon -->
+                <a href="cart.html" class="text-primary transition relative group font-bold">
+                    <i class="fas fa-shopping-bag text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold" style="display: none;">0</span>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-dark hover:text-primary focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white border-t mt-4 pb-4 shadow-lg z-50">
+            <div class="flex flex-col space-y-4 px-6 pt-4">
+                <a href="index.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Home</a>
+                <a href="shop.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">Shop</a>
+                <a href="about.html" class="text-dark hover:text-primary transition font-medium border-b pb-2">About</a>
+                <a href="contact.html" class="text-dark hover:text-primary transition font-medium pb-2">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <h1 class="text-3xl font-bold mb-10 border-b pb-4 text-dark">Your Shopping Cart</h1>
+        
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <!-- Cart Items -->
+            <div class="lg:w-2/3 bg-white p-6 rounded-xl shadow-sm">
+                <div id="cart-items">
+                    <!-- Items injected by JS -->
+                </div>
+            </div>
+
+            <!-- Order Summary (Simulated Backend logic handled in JS) -->
+            <div class="lg:w-1/3" id="cart-summary" style="display: none;">
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-6 text-dark border-b pb-4">Order Summary</h2>
+                    
+                    <div class="flex justify-between mb-4 text-gray-600">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal" class="font-medium text-dark">LKR 0</span>
+                    </div>
+                    
+                    <div class="flex justify-between mb-6 text-gray-600">
+                        <span>Shipping Estimate</span>
+                        <span class="font-medium text-dark">LKR 500</span>
+                    </div>
+                    
+                    <div class="border-t pt-4 flex justify-between mb-8">
+                        <span class="text-xl font-bold text-dark">Total</span>
+                        <span id="cart-total" class="text-xl font-bold text-primary">LKR 0</span>
+                    </div>
+
+                    <!-- Checkout Form (Mock) -->
+                    <form class="space-y-4 mb-6">
+                        <label class="block">
+                            <span class="text-gray-700 text-sm font-bold">Full Name</span>
+                            <input type="text" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700 text-sm font-bold">Delivery Address</span>
+                            <textarea required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border" rows="3"></textarea>
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700 text-sm font-bold">Phone Number</span>
+                            <input type="tel" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border">
+                        </label>
+                        <label class="block">
+                            <span class="text-gray-700 text-sm font-bold mb-2 block">Payment Method</span>
+                            <div class="p-3 border rounded-md bg-gray-50 flex items-center mb-3">
+                                <i class="fab fa-cc-visa text-blue-800 text-2xl mr-3"></i>
+                                <span class="font-bold text-dark">Visa Card Only</span>
+                            </div>
+                        </label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-2">
+                                <label class="block text-gray-700 text-sm font-bold">Card Number</label>
+                                <input type="text" placeholder="XXXX XXXX XXXX XXXX" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold">Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 text-sm font-bold">CVV</label>
+                                <input type="text" placeholder="123" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 px-4 py-2 border">
+                            </div>
+                        </div>
+                    </form>
+
+                    <button id="checkout-btn" class="w-full bg-primary hover:bg-[#c38c5b] text-white font-bold py-4 rounded transition duration-300 flex items-center justify-center space-x-2">
+                        <i class="fas fa-lock"></i>
+                        <span>Secure Checkout</span>
+                    </button>
+                    
+                    <p class="text-xs text-gray-400 text-center mt-4">By proceeding to checkout, you agree to our Terms and Conditions.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-10 pb-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-2xl font-bold tracking-widest text-primary uppercase mb-4" style="font-family: 'Playfair Display', serif;">PureBeauty</h3>
+            <p class="text-gray-400 text-sm">&copy; 2026 PureBeauty Cosmetics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
