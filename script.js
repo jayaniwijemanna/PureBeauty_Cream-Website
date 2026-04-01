@@ -272,3 +272,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// --- Newsletter Subscription ---
+function subscribeNewsletter(event) {
+    event.preventDefault();
+    const emailInput = event.target.querySelector('input[type="email"]');
+    if (emailInput && emailInput.value) {
+        showToast('Subscribed successfully with ' + emailInput.value + '!');
+        emailInput.value = '';
+    }
+}
+
+// --- Search Logic ---
+function toggleSearch() {
+    let searchModal = document.getElementById('search-modal');
+    if (!searchModal) {
+        searchModal = document.createElement('div');
+        searchModal.id = 'search-modal';
+        searchModal.className = 'fixed inset-0 bg-black bg-opacity-80 z-[100] flex items-center justify-center hidden';
+        searchModal.innerHTML = `
+            <div class="bg-white p-8 rounded-lg w-11/12 max-w-2xl relative animate-fade-in-up">
+                <button onclick="toggleSearch()" class="absolute top-4 right-4 text-gray-500 hover:text-dark">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+                <h3 class="text-2xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Search Products</h3>
+                <form action="shop.html" method="GET" class="flex" onsubmit="event.preventDefault(); window.location.href='shop.html';">
+                    <input type="text" name="q" placeholder="What are you looking for?" class="flex-grow border border-gray-300 px-4 py-3 rounded-l focus:outline-none focus:border-primary">
+                    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-r hover:bg-[#c38c5b] transition">Search</button>
+                </form>
+            </div>
+        `;
+        document.body.appendChild(searchModal);
+    }
+    
+    if (searchModal.classList.contains('hidden')) {
+        searchModal.classList.remove('hidden');
+        setTimeout(() => searchModal.querySelector('input').focus(), 100);
+    } else {
+        searchModal.classList.add('hidden');
+    }
+}
+
