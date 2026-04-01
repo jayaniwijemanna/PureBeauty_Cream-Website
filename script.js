@@ -313,3 +313,40 @@ function toggleSearch() {
     }
 }
 
+// --- Track Order Logic ---
+function trackOrder(event) {
+    event.preventDefault();
+    const orderInput = document.getElementById('order-id-input');
+    const resultDiv = document.getElementById('track-result');
+    
+    if (orderInput && resultDiv) {
+        const orderId = orderInput.value.trim();
+        const mockDb = JSON.parse(localStorage.getItem('purebeauty_mock_db')) || [];
+        
+        let foundOrder = mockDb.find(o => String(o.id) === orderId);
+        
+        resultDiv.classList.remove('hidden');
+        
+        if (foundOrder) {
+            resultDiv.innerHTML = `
+                <div class="bg-green-50 border border-green-200 text-green-800 p-4 rounded mb-4">
+                    <i class="fas fa-check-circle mr-2"></i> Order Found!
+                </div>
+                <h4 class="font-bold text-lg mb-2">Order #${foundOrder.id}</h4>
+                <p class="text-gray-600 mb-1"><strong>Name:</strong> ${foundOrder.full_name}</p>
+                <p class="text-gray-600 mb-1"><strong>Total:</strong> LKR ${foundOrder.total.toLocaleString()}</p>
+                <p class="text-gray-600 mb-4"><strong>Status:</strong> <span class="bg-primary text-white text-xs px-2 py-1 rounded ml-2 uppercase">${foundOrder.status || 'Pending'}</span></p>
+                <div class="mt-4 pt-4 border-t">
+                    <p class="text-sm text-gray-500">Your order is currently processing and will be handed over to our delivery partners shortly.</p>
+                </div>
+            `;
+        } else {
+            resultDiv.innerHTML = `
+                <div class="bg-red-50 border border-red-200 text-red-800 p-4 rounded">
+                    <i class="fas fa-exclamation-circle mr-2"></i> No order found with ID "${orderId}". Please check the number and try again.
+                </div>
+            `;
+        }
+    }
+}
+

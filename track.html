@@ -60,45 +60,32 @@
     </nav>
 
     <!-- Header Section -->
-    <header class="py-24 bg-white text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-6 text-dark" style="font-family: 'Playfair Display', serif;">The PureBeauty Story</h1>
-            <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
-            <p class="text-xl text-gray-500 leading-relaxed">Born out of a desire for uncompromised quality, PureBeauty merges the finest botanical ingredients with cutting-edge skincare science. We believe that luxury is purity.</p>
-        </div>
-    </header>
+    
 
-    <!-- Story Image & Text Section -->
-    <section class="py-16 bg-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="w-full md:w-1/2">
-                <img src="images/model.png" alt="PureBeauty Model" class="rounded-2xl shadow-xl w-full h-auto object-cover filter brightness-105">
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full mb-16">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100 mt-10">
+            <div class="text-center mb-10">
+                <i class="fas fa-box-open text-5xl text-primary mb-6"></i>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Track Your Order</h1>
+                <p class="text-gray-500">Enter your Order ID (e.g. 5234) below to check the current status of your shipment.</p>
             </div>
-            <div class="w-full md:w-1/2">
-                <h2 class="text-3xl font-bold mb-6 text-dark" style="font-family: 'Playfair Display', serif;">Our Philosophy</h2>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    At PureBeauty, we understand that your skin is your canvas. Our formulations are crafted meticulously, ensuring that every jar contains the perfect balance of hydration, nourishment, and active restorative properties.
-                </p>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    We source our signature Rose Extract globally, ensuring fair trade and sustainability. Combined with Pearl Protein and Hyaluronic Acid, our creams deliver unparalleled results without the use of harsh synthetics.
-                </p>
-                <div class="flex items-center space-x-4 mt-8">
-                    <div class="text-center">
-                        <span class="block text-3xl font-bold text-primary mb-1">10+</span>
-                        <span class="text-sm text-gray-500">Years of R&D</span>
-                    </div>
-                    <div class="h-10 border-l border-gray-300 mx-4"></div>
-                    <div class="text-center">
-                        <span class="block text-3xl font-bold text-primary mb-1">100%</span>
-                        <span class="text-sm text-gray-500">Vegan & Cruelty-Free</span>
-                    </div>
+            
+            <form id="track-form" onsubmit="trackOrder(event)" class="max-w-xl mx-auto space-y-6">
+                <div>
+                    <label class="block text-gray-700 font-medium mb-2">Order ID</label>
+                    <input type="text" id="order-id-input" required placeholder="e.g. 8492" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                 </div>
+                <button type="submit" class="w-full bg-dark text-white font-medium py-4 rounded hover:bg-black transition shadow-md">Track Package</button>
+            </form>
+
+            <div id="track-result" class="mt-10 hidden border-t pt-8">
+                <!-- Injected via JS -->
             </div>
         </div>
-    </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white pt-16 pb-8">
+<footer class="bg-dark text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div>
                 <h3 class="text-2xl font-bold tracking-widest text-primary uppercase mb-6" style="font-family: 'Playfair Display', serif;">PureBeauty</h3>
